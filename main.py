@@ -16,7 +16,7 @@ async def connect_to_wss(socks5_proxy, user_id):
     logger.info(device_id)
     while True:
         try:
-            await asyncio.sleep(random.randint(1, 10) / 10)
+            await asyncio.sleep(random.uniform(0.1, 1.0))  # Reduced frequency
             custom_headers = {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
             }
@@ -28,7 +28,7 @@ async def connect_to_wss(socks5_proxy, user_id):
             proxy = Proxy.from_url(socks5_proxy)
             async with proxy_connect(uri, proxy=proxy, ssl=ssl_context, extra_headers={
                 "Origin": "chrome-extension://lkbnfiajjmbhnfledhphioinpickokdi",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+                "User-Agent": custom_headers["User-Agent"]
             }) as websocket:
                 async def send_ping():
                     while True:
@@ -36,53 +36,47 @@ async def connect_to_wss(socks5_proxy, user_id):
                             {"id": str(uuid.uuid4()), "version": "1.0.0", "action": "PING", "data": {}})
                         logger.debug(send_message)
                         await websocket.send(send_message)
-                        await asyncio.sleep(20)
-                send_ping_task = asyncio.create_task(send_ping())
-                while True:
-                    response = await websocket.recv()
-                    message = json.loads(response)
-                    logger.info(message)
-                    if message.get("action") == "AUTH":
-                        auth_response = {
-                            "id": message["id"],
-                            "origin_action": "AUTH",
-                            "result": {
-                                "browser_id": device_id,
-                                "user_id": user_id,
-                                "user_agent": custom_headers['User-Agent'],
-                                "timestamp": int(time.time()),
-                                "device_type": "extension",
-                                "version": "4.20.2",
-                                "extension_id": "lkbnfiajjmbhnfledhphioinpickokdi"
-                            }
-                        }
-                        logger.debug(auth_response)
-                        await websocket.send(json.dumps(auth_response))
+                        await asyncio.sleep(60)  # Increased interval to reduce bandwidth usage
 
-                    elif message.get("action") == "PONG":
-                        pong_response = {"id": message["id"], "origin_action": "PONG"}
-                        logger.debug(pong_response)
-                        await websocket.send(json.dumps(pong_response))
+                send_ping_task = asyncio.create_task(send_ping())
+                try:
+                    while True:
+                        response = await websocket.recv()
+                        message = json.loads(response)
+                        logger.info(message)
+                        if message.get("action") == "AUTH":
+                            auth_response = {
+                                "id": message["id"],
+                                "origin_action": "AUTH",
+                                "result": {
+                                    "browser_id": device_id,
+                                    "user_id": user_id,
+                                    "user_agent": custom_headers['User-Agent'],
+                                    "timestamp": int(time.time()),
+                                    "device_type": "extension",
+                                    "version": "4.20.2",
+                                    "extension_id": "lkbnfiajjmbhnfledhphioinpickokdi"
+                                }
+                            }
+                            logger.debug(auth_response)
+                            await websocket.send(json.dumps(auth_response))
+
+                        elif message.get("action") == "PONG":
+                            pong_response = {"id": message["id"], "origin_action": "PONG"}
+                            logger.debug(pong_response)
+                            await websocket.send(json.dumps(pong_response))
+                finally:
+                    send_ping_task.cancel()
+
         except Exception as e:
             logger.error(f"Error with proxy {socks5_proxy}: {str(e)}")
-            if "[SSL: WRONG_VERSION_NUMBER]" in str(e) or "invalid length of packed IP address string" in str(e):
+            if any(error_msg in str(e) for error_msg in ["[SSL: WRONG_VERSION_NUMBER]", "invalid length of packed IP address string", "Empty connect reply", "Device creation limit exceeded", "sent 1011 (internal error) keepalive ping timeout; no close frame received"]):
                 logger.info(f"Removing error proxy from the list: {socks5_proxy}")
                 remove_proxy_from_list(socks5_proxy)
-                return None  # Return None to signal to the main loop to replace this proxy
-            elif "" in str(e):
-                logger.info(f"Removing error proxy from the list: {socks5_proxy}")
-                remove_proxy_from_list(socks5_proxy)
-                return None  # Return None to signal to the main loop to replace this 
-            elif "Empty connect reply" in str(e) or "Device creation limit exceeded" in str(e):
-                logger.info(f"Removing error proxy from the list: {socks5_proxy}")
-                remove_proxy_from_list(socks5_proxy)
-                return None  # Return None to signal to the main loop to replace this proxy
-            elif "sent 1011 (internal error) keepalive ping timeout; no close frame received" in str(e):
-                logger.info(f"Removing error proxy due to keepalive ping timeout: {socks5_proxy}")
-                remove_proxy_from_list(socks5_proxy)
-                return None  # Return None to signal to the main loop to replace this proxy
+                return None  # Signal to the main loop to replace this proxy
             else:
                 continue  # Continue to try to reconnect or handle other errors
+
 async def main():
     _user_id = 'Replace Your User ID HERE'   # Replace Your User ID HERE 
     proxy_file = 'proxy.txt' # your Path to Proxy3.txt file 
@@ -90,7 +84,7 @@ async def main():
     with open(proxy_file, 'r') as file:
         all_proxies = file.read().splitlines()
 
-    active_proxies = random.sample(all_proxies, 100) # write the number of proxy you wana use
+    active_proxies = random.sample(all_proxies, 100)  # Number of proxies to use
     tasks = {asyncio.create_task(connect_to_wss(proxy, _user_id)): proxy for proxy in active_proxies}
 
     while True:
