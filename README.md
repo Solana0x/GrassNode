@@ -49,12 +49,11 @@ Before running the script, ensure you have Python installed on your machine. The
 1. ``` git clone https://github.com/Solana0x/getgrass.git ```
 2. ``` cd getgrass ```
 3. ``` pip install -r requirements.txt ```
-4. Replace `User ID` and `Proxy server file location` list in correct formate in `main.py` File Line ```87-88 and 114```.
-5. By default 100 proxies will be taken randomly if you wana change then change here `active_proxies = random.sample(all_proxies, 100)` line 93. Here 100 means 100 proxy will be used at once.
+4. Replace `User ID` and `Proxy server file location` list in correct formate in `main.py` File Line ```81-82 and 108```.
+5. By default 100 proxies will be taken randomly if you wana change then change here `active_proxies = random.sample(all_proxies, 100)` line 87. Here 100 means 100 proxy will be used at once.
 6. Dont Forget to add multiple proxies in the proxy.txt file you can add 1000+ proxy !! Formate # `socks5://username:pass@ip:port`.
 7. You can get Multiple Proxy Ip address from Proxies.fo Website !! [use multiple IP ! `1 IP == ~1500 $Grass per Day `.
 8. To Run Script `python3 main.py` - Proxy one
-9. To Run Without Proxy `python no_proxy.py`
 10. To Run multiple User ID just copy paste the `main.py` file code and create new python file and repeat the process !!. 
 
 **Note** - 1 ip == 1200-1500 $Grass Per Day ==> 2.25$ per day (Price as per Whales Market )
