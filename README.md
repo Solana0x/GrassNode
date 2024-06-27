@@ -3,12 +3,18 @@
 # On everyones So many Dms and messages oN DIscord and Telegram I have started New COmmunity Node Server !! NO HASSEL of running NODE!!!
 
 Features
--> So , I will run the grass node on your Basis because many of you guys said you cant run the server or vps or proxies unable to run script !! 
+-> So , I will run the grass node on your Basis because many of you guys said you cant run the server or vps or proxies unable to run script !!
+
 -> Not Cost effective for you BEcause you guys Buying proxies for 4$ and i buyed bulk in 1$ !! 
+
 -> You have to pay heavy in vps cost
+
 -> Solution Just send me a dm in Discord and send your user ID i will add The Grass points directly to Your Grass account!! 
+
 -> EaSy and cheap solution no hassle of running node ! Better prices than whales market and easy access !! 
+
 -> CONTACT : ` 0xphatom ` on Discord  https://discord.com/users/979641024215416842
+
 -> Those who can run the script On their own and are devs Please run via own ! Dont Dm this is just for newbies and non technical persons Thanks :) !!
 
 This Python Bot script manages WebSocket connections through specified SOCKS5 proxies, Unlimited Proxies and multiple get grass Accounts handling authentication and maintaining persistent connections with a server. The script also includes functionality to periodically send ping messages to keep the connection alive forever. If you can run your pc 24/7 then you dont need a Vps or proxy server lol
