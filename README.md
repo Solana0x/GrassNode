@@ -5,15 +5,33 @@
 # On everyones So many Dms and messages oN DIscord and Telegram I have started New COmmunity Node Server !! NO HASSEL of running NODE!!!
 
 Features
--> So , I will run the grass node on your Basis because many of you guys said you cant run the server or vps or proxies unable to run script !!
--> Not Cost effective for you BEcause you guys Buying proxies for 4$ and i buyed bulk in 2$ !! 
--> You now Dont have to pay heavy in vps cost
--> Solution Just send me a dm in Discord and send your user ID i will add The Grass points directly to Your Grass account!! 
-# PRICE PER MILLION IS JUST 8 USD  
--> EaSy and cheap solution no hassle of running node ! Better prices than whales market and easy access !! 
--> CONTACT : ` 0xphatom ` on Discord  https://discord.com/users/979641024215416842
--> Those who can run the script On their own and are devs Please run via own ! Dont Dm this is just for newbies and non technical persons Thanks :) !!
 
+- So , I will run the grass node on your Basis because many of you guys said you cant run the server or vps or proxies unable to run script !!
+- Not Cost effective for you BEcause you guys Buying proxies for 4$ and i buyed bulk in 2$ !!
+- Reasons why You cant EARN more is because you are not getting how to run NODE so non DEV or non - TECH people COMMUNITY NODE IS BEST OPTION WE HAVE Around ~50 PEOPLE as of now in our community Node !! Earning Over 120M points DAILY ~~~~~~ !!
+- ![image](https://github.com/user-attachments/assets/90cfc48f-5e46-4e64-948b-281e72bfaf5d) 
+- You now Dont have to pay heavy in vps cost
+- Solution Just send me a dm in Discord and send your user ID i will add The Grass points directly to Your Grass account!! 
+# PRICE PER MILLION IS JUST 8 USD  
+- EaSy and cheap solution no hassle of running node ! Better prices than whales market and easy access !!
+- CONTACT : ` 0xphatom ` on Discord  https://discord.com/users/979641024215416842
+- Those who can run the script On their own and are devs Please run via own ! Dont Dm this is just for newbies and non technical persons Thanks :) !!
+
+![image](https://github.com/user-attachments/assets/c3cded25-48ff-4a16-a464-7419f1a1471d)
+
+# 不要错过草节点最后的EPOCH 7！！！
+# 获取草多账户100%正常运行的免费Python Bot 1.25x节点
+# 由于在Discord和Telegram上收到很多私信和消息，我启动了新的社区节点服务器！无需运行节点的麻烦！
+
+# 功能
+- 所以，我将基于你的需求运行草节点，因为你们中很多人表示无法运行服务器、VPS或代理，无法运行脚本！！
+- 对你们来说成本效益不高，因为你们购买代理需要4美元，而我批量购买只需2美元！！
+- 你现在不必支付高昂的VPS费用
+- 解决方案：只需在Discord上给我发送私信并发送你的用户ID，我会将草点数直接添加到你的草账户！！
+- 每百万点数的价格仅为8美元
+- 简单便宜的解决方案，无需运行节点的麻烦！比鲸鱼市场价格更好，访问更便捷！！
+- 联系方式：Discord上的0xphatom https://discord.com/users/979641024215416842(https://discord.com/users/979641024215416842)
+- 那些能够自己运行脚本并且是开发者的，请自行运行！请勿私信，这仅适用于新手和非技术人员，谢谢 :) !!
 
 
 
