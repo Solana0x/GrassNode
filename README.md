@@ -49,7 +49,7 @@ This Python Bot script manages WebSocket connections through specified SOCKS5 pr
 
 ## Features
 
-- New feataure added for 1.25x boost using Grass NODE !!
+- New feature added for 1.25x boost using Grass NODE !!
 - Connects to a WebSocket server using SOCKS5 proxies.
 - Handles Multiple Get Grass User IDs at once !! Multiple Proxies (1 Proxy ~1500 $GRASS)
 - Per Proxy ~1500 **$Grass per day** ~2.25$ PER DAY !! Unlimited proxies Make Unlimited Money !
